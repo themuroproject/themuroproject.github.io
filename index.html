@@ -517,6 +517,8 @@ figure img { border: 1px solid var(--rule); }
 /* Embedded interactive map (Example tab) */
 .map-embed { margin: 1.5rem 0 0.5rem; }
 .map-embed iframe { display: block; width: 100%; height: 80vh; min-height: 560px; max-height: 820px; border: 1px solid var(--rule); background: #f1ecdd; }
+.map-embed, section > p.wide { max-width: 90%; }
+section > p.wide { width: 90%; }
 .map-note { font-size: 1.2rem; color: var(--muted); }
 
 /* Team */
@@ -544,7 +546,7 @@ footer { border-top: 1px solid var(--rule); margin-top: 4rem; padding-top: 1rem;
 @media (max-width: 760px) {
   .masthead h1 { font-size: 2.2rem; }
   .intro-figure { float: none; width: 100%; margin: 0 0 1.5rem 0; }
-  p.subtitle, .tabs, .team, .sources, footer, .process-figure { width: 100%; max-width: none; }
+  p.subtitle, .tabs, .team, .sources, footer, .process-figure, section > p.wide { width: 100%; max-width: none; }
 }
 
 </style>
@@ -632,12 +634,10 @@ footer { border-top: 1px solid var(--rule); margin-top: 4rem; padding-top: 1rem;
   <!-- SECTION: example -->
   <section id="panel-example" class="panel">
     <h2>Example: Quilpu&eacute;, 1971</h2>
-    <p>The best way to see what the process produces is to follow one plan from paper to data.
+    <p class="wide">The best way to see what the process produces is to follow one plan from paper to data.
     Below is the 1971 regulatory plan of Quilpu&eacute;, a city in the Valpara&iacute;so region: a single hand-hatched
     blueprint sheet. Step through the map to see it placed on today&rsquo;s street network, traced into zone
     polygons, classified, and compared with the original.</p>
-    <p>The plan&rsquo;s legend is printed in Spanish and shown as it appears on the sheet. The zone names on the
-    digitized map are our English translations.</p>
     <div class="fullwidth map-embed">
       <iframe src="quilpue-1971.html" title="Interactive map: the 1971 plan of Quilpu&eacute; digitized" loading="lazy" allowfullscreen></iframe>
     </div>
