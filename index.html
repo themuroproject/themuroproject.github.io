@@ -514,6 +514,11 @@ figure img { border: 1px solid var(--rule); }
 .tabs a:hover { color: var(--ink); }
 .tabs a[aria-current="page"] { color: var(--ink); border-bottom-color: var(--ink); }
 
+/* Embedded interactive map (Example tab) */
+.map-embed { margin: 1.5rem 0 0.5rem; }
+.map-embed iframe { display: block; width: 100%; height: 80vh; min-height: 560px; max-height: 820px; border: 1px solid var(--rule); background: #f1ecdd; }
+.map-note { font-size: 1.2rem; color: var(--muted); }
+
 /* Team */
 .team { list-style: none; padding-left: 0; width: 55%; margin-top: 0.4rem; }
 .team li { padding: 0.5rem 0; border-bottom: 1px solid var(--rule); }
@@ -558,6 +563,7 @@ footer { border-top: 1px solid var(--rule); margin-top: 4rem; padding-top: 1rem;
   <nav class="tabs" aria-label="Sections">
     <a href="#intro">Introduction</a>
     <a href="#what-we-do">What we do</a>
+    <a href="#example">Example: Quilpu&eacute; 1971</a>
     <a href="#team">Team and affiliations</a>
     <a href="#data">Data</a>
     <a href="#code">Code</a>
@@ -585,7 +591,7 @@ footer { border-top: 1px solid var(--rule); margin-top: 4rem; padding-top: 1rem;
     language models, with experts reviewing the results. We start with Chile and are building the process
     so it can be repeated in other countries.</p>
 
-    <p class="status"><span class="label">Status</span> Preliminary. This page describes the method. No data is released yet.</p>
+    <p class="status"><span class="label">Status</span> Preliminary. This site describes the method and walks through one worked example (<a href="#example">Quilpu&eacute;, 1971</a>). No data is released yet.</p>
   </section>
 
   <!-- SECTION: what-we-do -->
@@ -605,7 +611,7 @@ footer { border-top: 1px solid var(--rule); margin-top: 4rem; padding-top: 1rem;
     <p>Historical zoning plans survive as scans and drawings. We place each sheet on the ground, trace the
     zones it defines, and give every zone the code printed in its legend. Each new plan modifies an
     earlier one, so we update the previous map instead of redrawing the city from scratch, and we
-    end up with a map of the rules for each year.</p>
+    end up with a map of the rules for each year. <a href="#example">See the whole process on a 1971 plan of Quilpu&eacute;.</a></p>
 
     <h3>2. Read the documentation with language models</h3>
     <p>The maps tell us where a zone is; the written ordinances tell us what it allows.
@@ -621,6 +627,21 @@ footer { border-top: 1px solid var(--rule); margin-top: 4rem; padding-top: 1rem;
         It accompanies the map in Figure 1.</li>
       <li><strong>Plan maps.</strong> Maps delivered by the municipalities, and other MINVU sources.</li>
     </ul>
+  </section>
+
+  <!-- SECTION: example -->
+  <section id="panel-example" class="panel">
+    <h2>Example: Quilpu&eacute;, 1971</h2>
+    <p>The best way to see what the process produces is to follow one plan from paper to data.
+    Below is the 1971 regulatory plan of Quilpu&eacute;, a city in the Valpara&iacute;so region: a single hand-hatched
+    blueprint sheet. Step through the map to see it placed on today&rsquo;s street network, traced into zone
+    polygons, classified, and compared with the original.</p>
+    <p>The plan&rsquo;s legend is printed in Spanish and shown as it appears on the sheet. The zone names on the
+    digitized map are our English translations.</p>
+    <div class="fullwidth map-embed">
+      <iframe src="quilpue-1971.html" title="Interactive map: the 1971 plan of Quilpu&eacute; digitized" loading="lazy" allowfullscreen></iframe>
+    </div>
+    <p class="map-note"><a href="quilpue-1971.html" target="_blank" rel="noopener">Open the map full screen</a>. Use the arrow keys or the buttons to move between steps.</p>
   </section>
 
   <!-- SECTION: team -->
@@ -683,7 +704,7 @@ footer { border-top: 1px solid var(--rule); margin-top: 4rem; padding-top: 1rem;
   // Show one section at a time, chosen by the URL hash (#team, #data, ...). Default: introduction.
   // Panels are named panel-<id> so the browser does not scroll to them when the hash changes.
   (function () {
-    var ids = ['intro', 'what-we-do', 'team', 'data', 'code', 'acknowledgments'];
+    var ids = ['intro', 'what-we-do', 'example', 'team', 'data', 'code', 'acknowledgments'];
     function show() {
       var id = location.hash.replace('#', '');
       if (ids.indexOf(id) < 0) id = 'intro';
