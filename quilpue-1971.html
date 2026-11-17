@@ -63,7 +63,17 @@ header a:hover{color:var(--accent)}
 .leaflet-tooltip.ztip{font-family:inherit;font-size:14px;background:var(--card);color:var(--ink);border:1px solid var(--ink);box-shadow:none}
 
 html.embedded header{display:none}
-html.embedded #card{top:14px;max-height:calc(100vh - 28px)}
+html.embedded #card{top:12px;left:12px;width:316px;max-height:calc(100vh - 24px);padding:14px 16px 10px}
+html.embedded #card .kicker{font-size:11px;margin-bottom:4px}
+html.embedded #card h1{font-size:20px;margin-bottom:6px}
+html.embedded #card p{font-size:14px;line-height:1.38;margin-bottom:7px}
+html.embedded #card .stats{margin:4px 0 8px;gap:12px} html.embedded #card .stats b{font-size:18px}
+html.embedded #card .stats div{font-size:12px}
+html.embedded #card img.legend{max-height:170px;object-fit:contain;margin-bottom:6px}
+html.embedded .key{max-height:none;margin:2px 0 6px} html.embedded .key label{font-size:12.5px;padding:1px 0}
+html.embedded .nav{margin-top:8px;padding-top:8px} html.embedded .nav button{font-size:14px;padding:4px 12px}
+html.embedded #card .foot:last-child{display:none}
+html.embedded .ctl{margin:4px 0}
 @media (max-width:760px){
   html.embedded #card{top:auto}
   #card{left:0;right:0;top:auto;bottom:0;width:auto;max-height:50vh;border-width:1px 0 0;padding:14px 16px 10px}
@@ -158,7 +168,7 @@ map.on('move zoom resize viewreset',()=>{if(state.curtain)clip()});
 
 /* ---- story ---- */
 const desktop=()=>innerWidth>760;
-function view(b,opt){ const pad=desktop()?{paddingTopLeft:[430,60],paddingBottomRight:[30,30]}:{paddingTopLeft:[10,60],paddingBottomRight:[10,innerHeight*0.5]};
+function view(b,opt){ const pad=desktop()?{paddingTopLeft:[document.documentElement.classList.contains('embedded')?350:430,60],paddingBottomRight:[30,30]}:{paddingTopLeft:[10,60],paddingBottomRight:[10,innerHeight*0.5]};
   map.flyToBounds(b,Object.assign({duration:1.1},pad,opt||{})); }
 const centre=L.latLngBounds([[-33.0705,-71.4650],[-33.0380,-71.4050]]);
 const ptsB=L.latLngBounds(D.points.map(p=>[p.lat,p.lon])).pad(0.08);
